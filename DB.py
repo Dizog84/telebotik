@@ -28,6 +28,6 @@ class SQLighter:
         """ Закрываем текущее соединение с БД """
         self.connection.close()
 
-print(SQLighter(config.music_db_file).select_all())
+
 
 

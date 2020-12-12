@@ -1,4 +1,5 @@
 from random import shuffle
+import telebot
 
 def generate_markup(right_answer, wrong_answers):
     """
@@ -7,7 +8,7 @@ def generate_markup(right_answer, wrong_answers):
     :param wrong_answers: Набор неправильных ответов
     :return: Объект кастомной клавиатуры
     """
-    markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
+    markup = telebot.types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
     # Склеиваем правильный ответ с неправильными
     all_answers = '{},{}'.format(right_answer, wrong_answers)
     # Создаем лист (массив) и записываем в него все элементы

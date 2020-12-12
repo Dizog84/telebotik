@@ -12,7 +12,7 @@ def count_rows():
     """
     db = SQLighter(config.music_db_file)
     rowsnum = db.count_rows()
-    with shelve.open(config.music_shelve) as storage:
+    with shelve.open('music_shelve') as storage:
         storage['rows_count'] = rowsnum
 
 
@@ -21,7 +21,7 @@ def get_rows_count():
     Получает из хранилища количество строк в БД
     :return: (int) Число строк
     """
-    with shelve.open(config.music_shelve) as storage:
+    with shelve.open('music_shelve') as storage:
         rowsnum = storage['rows_count']
     return rowsnum
 
@@ -32,7 +32,7 @@ def set_user_game(chat_id, estimated_answer):
     :param chat_id: id юзера
     :param estimated_answer: правильный ответ (из БД)
     """
-    with shelve.open(config.music_shelve) as storage:
+    with shelve.open('music_shelve') as storage:
         storage[str(chat_id)] = estimated_answer
 
 
@@ -41,7 +41,7 @@ def finish_user_game(chat_id):
     Заканчиваем игру текущего пользователя и удаляем правильный ответ из хранилища
     :param chat_id: id юзера
     """
-    with shelve.open(config.music_shelve) as storage:
+    with shelve.open('music_shelve') as storage:
         del storage[str(chat_id)]
 
 
@@ -52,7 +52,7 @@ def get_answer_for_user(chat_id):
     :param chat_id: id юзера
     :return: (str) Правильный ответ / None
     """
-    with shelve.open(config.music_shelve) as storage:
+    with shelve.open('music_shelve') as storage:
         try:
             answer = storage[str(chat_id)]
             return answer
