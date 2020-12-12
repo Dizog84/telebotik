@@ -7,7 +7,7 @@ import shelve
 from DB import SQLighter
 from random import shuffle
 '''
-token = "1349596380:AAHZTQxvYNelGIbNLR_c8VBr-Q3huQzE6o0"
+token = ""
 music_path = '/home/denis/Projects/telebotik/music/ogg/'
 music_db_file = '/home/denis/Projects/telebotik/DB/music.db'
 
